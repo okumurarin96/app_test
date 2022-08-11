@@ -19,12 +19,12 @@ import java.lang.reflect.Type;
 import java.util.List;
 
 public class Utils {
-    public static boolean isTextEmpty(@Nullable String text) {
+    public static boolean isTextEmpty(@Nullable CharSequence text) {
         if (text != null) {
-            if (text.equalsIgnoreCase("null")) {
+            if (text.toString().equalsIgnoreCase("null")) {
                 return true;
             } else {
-                return text.trim().length() <= 0;
+                return text.toString().trim().length() <= 0;
             }
         } else {
             return true;
@@ -55,6 +55,11 @@ public class Utils {
     public static void runOnUiThread(Runnable runnable) {
         Handler handler = new Handler(Looper.getMainLooper());
         handler.post(runnable);
+    }
+
+    public static void postDelayed(Runnable runnable, long delayMillis) {
+        Handler handler = new Handler(Looper.getMainLooper());
+        handler.postDelayed(runnable, delayMillis);
     }
 
     public static <T> List<T> getListFromStringJSON(String jsonArray, Class<T> clazz) {

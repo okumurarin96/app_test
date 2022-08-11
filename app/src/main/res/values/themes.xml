@@ -28,5 +28,6 @@
     <style name="ModalBottomSheetDialog" parent="ThemeOverlay.MaterialComponents.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/ModalBottomSheet</item>
         <item name="behavior_draggable">false</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
     </style>
 </resources>
