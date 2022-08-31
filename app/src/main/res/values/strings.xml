@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Sample</string>
+    <string-array name="chat_support_status_array">
+        <item>Current</item>
+        <item>Past</item>
+        <item>All</item>
+    </string-array>
+
+    <string-array name="attach_message_array">
+        <item>PHOTO</item>
+        <item>VIDEO</item>
+        <item>AUDIO</item>
+        <item>FILE</item>
+        <item>LINK</item>
+    </string-array>
 </resources>

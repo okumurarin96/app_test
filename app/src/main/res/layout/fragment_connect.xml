@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:nestedScrollingEnabled="true"
+    android:theme="@style/ModalBottomSheetDialog"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+    tools:context="com.stringee.app.dialog_fragment.ConnectFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorPrimary">
+
+            <ImageButton
+                android:id="@+id/btn_back"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/menu_selector"
+                android:src="@drawable/ic_back" />
+
+            <ImageButton
+                android:id="@+id/btn_done"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/menu_selector"
+                android:src="@drawable/ic_check" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_token"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/toolbar"
+            android:gravity="center"
+            android:text="Token"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/et_token"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_below="@id/tv_token"
+            android:layout_marginHorizontal="10dp"
+            android:background="@drawable/bg_border"
+            android:gravity="top|start"
+            android:nestedScrollingEnabled="true"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <RelativeLayout
+            android:id="@+id/v_server_address"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/et_token"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Server address"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <ImageButton
+                android:id="@+id/btn_edit"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/menu_selector"
+                android:src="@drawable/ic_edit" />
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_server_address"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_below="@id/v_server_address"
+            android:layout_marginHorizontal="10dp"
+            android:background="@drawable/bg_border"
+            android:padding="5dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/v_base_url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rv_server_address"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="20dp"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:hintTextColor="@color/black">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_base_api_url"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_border"
+                android:hint="Base API url"
+                android:inputType="text"
+                android:lines="1"
+                android:textSize="16sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/v_stringeex_url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/v_base_url"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="20dp"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:hintTextColor="@color/black">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_stringeex_url"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_border"
+                android:hint="StringeeX API url"
+                android:inputType="text"
+                android:lines="1"
+                android:textSize="16sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

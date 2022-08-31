@@ -35,10 +35,10 @@ public class SocketAddressesFragment extends BaseBottomSheetDialogFragment {
     private View vAdd;
     private SocketAddressAdapter adapter;
     private List<ServerAddress> serverAddresses = new ArrayList<>();
-    private boolean isAddAddress = false;
+    private boolean isAdd = false;
     private CallbackListener<List<ServerAddress>> listener;
 
-    public void setOnSelectServerAddress(CallbackListener<List<ServerAddress>> listener) {
+    public void setCallBack(CallbackListener<List<ServerAddress>> listener) {
         this.listener = listener;
     }
 
@@ -83,7 +83,7 @@ public class SocketAddressesFragment extends BaseBottomSheetDialogFragment {
                 super.onLongClick(view, position);
                 PopupMenu popupMenu = new PopupMenu(requireContext(), view);
                 popupMenu.setGravity(android.view.Gravity.END);
-                popupMenu.getMenuInflater().inflate(menu.menu_server_address, popupMenu.getMenu());
+                popupMenu.getMenuInflater().inflate(menu.menu_delete, popupMenu.getMenu());
                 popupMenu.setForceShowIcon(true);
                 popupMenu.setOnMenuItemClickListener(item -> {
                             int itemId = item.getItemId();
@@ -109,11 +109,11 @@ public class SocketAddressesFragment extends BaseBottomSheetDialogFragment {
     public void onClick(View v) {
         int vId = v.getId();
         if (vId == id.btn_add) {
-            isAddAddress = true;
+            isAdd = true;
             updateView();
         } else if (vId == id.btn_done) {
-            if (isAddAddress) {
-                if (Utils.isTextEmpty(etIp.getText()) || Utils.isTextEmpty(etPort.getText())) {
+            if (isAdd) {
+                if (Utils.isStringEmpty(etIp.getText()) || Utils.isStringEmpty(etPort.getText())) {
                     Utils.reportMessage(requireContext(), "Ip or port cannot empty");
                     return;
                 }
@@ -122,7 +122,7 @@ public class SocketAddressesFragment extends BaseBottomSheetDialogFragment {
                 etIp.setText("");
                 etPort.setText("");
                 saveServerAddress();
-                isAddAddress = false;
+                isAdd = false;
                 updateView();
             } else {
                 if (listener != null) {
@@ -132,10 +132,10 @@ public class SocketAddressesFragment extends BaseBottomSheetDialogFragment {
                 dismiss();
             }
         } else if (vId == id.btn_back) {
-            if (isAddAddress) {
+            if (isAdd) {
                 etIp.setText("");
                 etPort.setText("");
-                isAddAddress = false;
+                isAdd = false;
                 updateView();
             } else {
                 dismiss();
@@ -144,9 +144,9 @@ public class SocketAddressesFragment extends BaseBottomSheetDialogFragment {
     }
 
     private void updateView() {
-        vAdd.setVisibility(isAddAddress ? View.VISIBLE : View.GONE);
-        rvSocketAddress.setVisibility(isAddAddress ? View.GONE : View.VISIBLE);
-        btnAdd.setVisibility(isAddAddress ? View.GONE : View.VISIBLE);
+        vAdd.setVisibility(isAdd ? View.VISIBLE : View.GONE);
+        rvSocketAddress.setVisibility(isAdd ? View.GONE : View.VISIBLE);
+        btnAdd.setVisibility(isAdd ? View.GONE : View.VISIBLE);
     }
 
     private void saveServerAddress() {

@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:theme="@style/ModalBottomSheetDialog"
-    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+    tools:context="com.stringee.app.dialog_fragment.SocketAddressesFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <RelativeLayout
-            android:id="@+id/tool_bar"
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@drawable/bg_bottom_sheet_title">
+            android:background="@color/colorPrimary">
 
             <TextView
                 android:layout_width="match_parent"
@@ -53,23 +55,25 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_server_address"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/tool_bar" />
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toolbar" />
 
         <LinearLayout
             android:id="@+id/v_add"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/tool_bar"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toolbar"
             android:layout_margin="10dp"
+            android:animateLayoutChanges="true"
+            android:animationCache="true"
             android:orientation="vertical"
             android:visibility="gone">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:boxStrokeWidthFocused="0dp"
                 app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
                 app:hintTextColor="@color/black">
 
                 <com.google.android.material.textfield.TextInputEditText
